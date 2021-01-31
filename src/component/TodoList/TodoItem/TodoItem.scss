@@ -1,4 +1,5 @@
 .item{
+  position: relative;
   background: #f5f5f5;
   flex: 1 1 300px;
   max-width: 400px;
@@ -22,17 +23,31 @@
     padding: 0;
   }
 
-  &__deletebtn{
+  &__done{
     display: flex;
+    align-items: center;
+  }
+
+
+  &__completed{
+    text-decoration: line-through;
+    color: #868686;
+  }
+
+  &__deletebtn{
+    position: absolute;
     background: #f5f5f5;
     border:none;
-    color:red;
     font-size: 24px;
     cursor: pointer;
-    justify-self: flex-end;
+    right: 10px;
 
     &:active, &:focus{
       outline: none;
+    }
+
+    &:hover{
+      background: #fd3838;
     }
   }
 
@@ -43,4 +58,5 @@ input[type="checkbox"]{
   height: 18px;
   border-radius: 7px;
   cursor: pointer;
+  margin-right: 20px;
 }

@@ -10,7 +10,7 @@ export default function TodoItem({todo,toggleCompleted, deleteTodo}){
                 <input type="checkbox" checked={todo.completed} onChange={() => toggleCompleted(todo.index)} />
             </div>
             <div className="item__task">
-                <p className="item__text">
+                <p className={`item__text ${todo.completed ? "item__completed" : null}`}>
                     {todo.task}
                 </p>
             </div>
