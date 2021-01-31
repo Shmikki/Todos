@@ -1,13 +1,14 @@
 import React from 'react';
-import  "./TodoList.css"
+import "./TodoList.css"
 import TodoItem from "./TodoItem/TodoItem";
 
 
-export default function TodoList(props){
+export default function TodoList(props) {
 
-    return(
+    return (
         <div className={"todo__list"}>
-            {props.todos.map(todo => <TodoItem todo={todo} key={todo.index} />)}
+            {props.todos.map(todo => <TodoItem todo={todo} key={todo.index} toggleCompleted={props.toggleCompleted}
+            />)}
         </div>
     )
 }
