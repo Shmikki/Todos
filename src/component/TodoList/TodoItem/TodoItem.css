@@ -1,27 +1,42 @@
 .item {
   background: #f5f5f5;
-  justify-content: space-between;
   flex: 1 1 300px;
   max-width: 400px;
   display: flex;
-  flex-direction: row;
   margin: 10px;
   padding: 10px;
   border: 1px solid #c4c4c4;
   align-items: center;
 }
-.item__index {
-  font-weight: 700;
-  margin-right: 10px;
-}
 .item__task {
-  margin-right: 10px;
+  font-size: 18px;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  display: flex;
+  max-width: 70%;
+}
+.item__text {
+  margin: 0;
+  padding: 0;
 }
 .item__deletebtn {
+  display: flex;
   background: #f5f5f5;
   border: none;
   color: red;
   font-size: 24px;
+  cursor: pointer;
+  justify-self: flex-end;
+}
+.item__deletebtn:active, .item__deletebtn:focus {
+  outline: none;
+}
+
+input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+  border-radius: 7px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=TodoItem.css.map */

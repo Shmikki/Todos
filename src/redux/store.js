@@ -1,6 +1,8 @@
 import {createStore} from "redux";
 
 const SET_COMPLETED = "SET_COMPLETED";
+const DELETE_TODO = "DELETE_TODO";
+
 
 export function setCompleted(index){
     return {
@@ -9,6 +11,12 @@ export function setCompleted(index){
     }
 }
 
+export function deleteTodo(index){
+    return {
+        type: DELETE_TODO,
+        id: index
+    }
+}
 
 const todos = [
     {
@@ -36,7 +44,9 @@ function todosReducer(state = todos,action){
             action.id === index + 1
                 ? {...todo ,completed: !todo.completed }
                 : todo
-        )]
+        )];
+        case DELETE_TODO:
+            return state.filter((item,index) => item.index !== action.id );
         default :
             return state
     }

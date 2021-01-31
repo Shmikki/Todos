@@ -1,14 +1,14 @@
 import React from "react";
 import {compose} from "redux";
 import TodoList from "./TodoList";
-import {setCompleted} from "../../redux/store";
+import {deleteTodo, setCompleted} from "../../redux/store";
 import {connect} from "react-redux";
 
 class TodoListContainer extends React.Component{
 
     render(){
         return(
-            <TodoList todos={this.props.todos} toggleCompleted={this.props.toggleCompleted}/>
+            <TodoList todos={this.props.todos} toggleCompleted={this.props.toggleCompleted} deleteTodo={this.props.deleteTodo}/>
         )
     }
 }
@@ -22,7 +22,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        toggleCompleted: (index) => dispatch(setCompleted(index))
+        toggleCompleted: (index) => dispatch(setCompleted(index)),
+        deleteTodo: (index) => dispatch(deleteTodo(index))
     }
 }
 

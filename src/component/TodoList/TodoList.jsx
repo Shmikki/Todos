@@ -7,7 +7,7 @@ export default function TodoList(props) {
 
     return (
         <div className={"todo__list"}>
-            {props.todos.map(todo => <TodoItem todo={todo} key={todo.index} toggleCompleted={props.toggleCompleted}
+            {props.todos.map(todo => <TodoItem todo={todo} key={todo.index} deleteTodo={props.deleteTodo} toggleCompleted={props.toggleCompleted}
             />)}
         </div>
     )
