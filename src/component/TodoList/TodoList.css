@@ -1,0 +1,9 @@
+.todo__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50%;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=TodoList.css.map */

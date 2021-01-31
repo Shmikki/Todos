@@ -1,0 +1,27 @@
+.item {
+  background: #f5f5f5;
+  justify-content: space-between;
+  flex: 1 1 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #c4c4c4;
+  align-items: center;
+}
+.item__index {
+  font-weight: 700;
+  margin-right: 10px;
+}
+.item__task {
+  margin-right: 10px;
+}
+.item__deletebtn {
+  background: #f5f5f5;
+  border: none;
+  color: red;
+  font-size: 24px;
+}
+
+/*# sourceMappingURL=TodoItem.css.map */
