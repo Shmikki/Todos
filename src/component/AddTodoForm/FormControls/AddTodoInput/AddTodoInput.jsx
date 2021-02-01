@@ -23,7 +23,7 @@ const InputContainer = styled.input`
   color: #2f3337;
   border-radius: 9px;
   border: none;
-  box-shadow: "0px 0px 5px 1px #0783EF";
+ 
 
   &:hover {
     box-shadow: 0px 0px 5px 0px #0783EF};
@@ -43,7 +43,7 @@ const InputContainer = styled.input`
 export function Input(props) {
     const {
         input,
-        meta: { error, touched }
+        meta: { error }
     } = useField(props.name, {
         initialValue: props.initialValue,
         validate: props.validate
@@ -51,7 +51,7 @@ export function Input(props) {
 
     const inputProps = {
         ...props,
-        error: touched && error && true,
+        error: error && true,
         ...input
     };
 

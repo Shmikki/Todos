@@ -20,12 +20,15 @@ const FormWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  min-width: 400px;
+  box-sizing: border-box;
 `;
 
 
 const Button = styled.button`
   color: #5b7cb5;
   margin: 5px;
+  margin-left: 3px;
   padding: 0;
   border: none;
   border-radius: 3px;
@@ -37,14 +40,20 @@ const Button = styled.button`
   width: 30px;
   height: 30px;
   cursor: pointer;
+  
+ &:active, &:focus{
+      outline: none;
+    }
   `;
 
 
 
 export const TodoForm = (props) => (
-    <Form className="form" onSubmit={(values) => {
-        props.addTodo(values.task);
-        values.task = "";
+    <Form className="form" onSubmit={values => {
+        if(values.task !== "") {
+            props.addTodo(values.task);
+            values.task = "";
+        }
     }}>
         {props => (
             <FormWrapper>

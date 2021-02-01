@@ -3,6 +3,7 @@ import {compose} from "redux";
 import TodoList from "./TodoList";
 import {deleteTodo, setCompleted} from "../../redux/store";
 import {connect} from "react-redux";
+import {getTodosSuperSelector} from "../../redux/todo-selectors";
 
 class TodoListContainer extends React.Component{
 
@@ -16,7 +17,7 @@ class TodoListContainer extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        todos: state
+        todos: getTodosSuperSelector(state)
     }
 }
 

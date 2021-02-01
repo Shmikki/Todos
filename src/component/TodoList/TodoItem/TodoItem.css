@@ -1,13 +1,20 @@
 .item {
+  height: 70px;
   position: relative;
   background: #f5f5f5;
-  flex: 1 1 300px;
+  flex: 1 0 150px;
+  min-width: 370px;
   max-width: 400px;
   display: flex;
-  margin: 10px;
+  margin: 7px 0;
   padding: 10px;
   border: 1px solid #c4c4c4;
   align-items: center;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+.item:hover {
+  background: #d2d2d2;
 }
 .item__task {
   font-size: 18px;
