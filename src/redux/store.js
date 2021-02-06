@@ -11,7 +11,7 @@ export function setCompleted(index){
     }
 }
 
-export function deleteTodo(index){
+export function deleteTodoActionCreator(index){
     return {
         type: DELETE_TODO,
         id: index
@@ -45,19 +45,21 @@ const todos = [
     }
 ];
 
+let id = 4;
 
 function todosReducer(state = todos,action){
     switch (action.type){
         case SET_COMPLETED:
-           return [...state.map((todo, index) =>
-            action.id === index + 1
+           return [...state.map(todo =>
+            action.id === todo.index
                 ? {...todo ,completed: !todo.completed }
                 : todo
         )];
         case DELETE_TODO:
             return state.filter((item,index) => item.index !== action.id );
         case ADD_TODO:
-            state.push({ index : state.length + 1, task : action.task, completed: false });
+            state.push({ index : id, task : action.task, completed: false });
+            id++;
             return [...state];
         default :
             return state

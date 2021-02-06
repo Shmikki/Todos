@@ -6,5 +6,5 @@ const getTodos = (state) => {
 }
 
 export const getTodosSuperSelector = createSelector(getTodos, (todos) => {
-    return todos.filter(u => true);
+    return todos.filter(todo => true);  
 })
