@@ -4,30 +4,49 @@ const SET_COMPLETED = "SET_COMPLETED";
 const DELETE_TODO = "DELETE_TODO";
 const ADD_TODO = "ADD_TODO";
 
-export function setCompleted(index){
+type setCompletedActionType = {
+    type: typeof SET_COMPLETED
+    id: number
+}
+
+export function setCompleted(index:number) : setCompletedActionType{
     return {
         type: SET_COMPLETED,
         id : index
     }
 }
 
-export function deleteTodoActionCreator(index){
+type deleteTodoActionType = {
+    type: typeof DELETE_TODO
+    id: number
+}
+
+export function deleteTodoActionCreator(index:number):deleteTodoActionType{
     return {
         type: DELETE_TODO,
         id: index
     }
 }
 
-export const addTodo = (text) => {
+type addTodoActionType = {
+    type: typeof ADD_TODO,
+    task: string
+}
+
+export const addTodo = (text:string):addTodoActionType => {
     return {
             type: ADD_TODO,
             task : text
         }
-
 }
 
+export type todoType = {
+    index: number
+    task: string
+    completed: boolean
+}
 
-const todos = [
+const todos: Array<todoType> = [
     {
         index : 1,
         task: "купить молоко",
@@ -45,9 +64,9 @@ const todos = [
     }
 ];
 
-let id = 4;
+let id:number = todos.length + 1;
 
-function todosReducer(state = todos,action){
+function todosReducer(state = todos,action:any) : Array<todoType>{
     switch (action.type){
         case SET_COMPLETED:
            return [...state.map(todo =>
@@ -56,7 +75,7 @@ function todosReducer(state = todos,action){
                 : todo
         )];
         case DELETE_TODO:
-            return state.filter((item,index) => item.index !== action.id );
+            return state.filter(item => item.index !== action.id );
         case ADD_TODO:
             state.push({ index : id, task : action.task, completed: false });
             id++;
