@@ -1,9 +1,11 @@
-import React from "react";
-import  "./TodoForm.scss";
+import React, {useCallback} from "react";
+import "./TodoForm.scss";
 import styled from "styled-components";
 import Form from "./FormControls/AddTodoForm";
 import {Input} from "./FormControls/AddTodoInput/AddTodoInput";
 import plus from "../../assets/images/plus.svg";
+import {useDispatch} from "react-redux";
+import {addTodoActionCreator} from "../../redux/store";
 
 
 const Group = styled.div`
@@ -15,7 +17,6 @@ const Group = styled.div`
   margin-bottom: 10px;
 `;
 
-
 const FormWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -23,7 +24,6 @@ const FormWrapper = styled.div`
   min-width: 400px;
   box-sizing: border-box;
 `;
-
 
 const Button = styled.button`
   color: #5b7cb5;
@@ -47,21 +47,32 @@ const Button = styled.button`
   `;
 
 
+export const TodoForm = (props) => {
 
-export const TodoForm = (props) => (
-    <Form className="form" onSubmit={values => {
-        if(values.task !== "") {
-            props.addTodo(values.task);
-            values.task = "";
-        }
-    }}>
-        {props => (
-            <FormWrapper>
-                <Group>
-                    <Input name="task" type="text" placeholder="Title..." validate={validate => !(validate || "")} />
-                </Group>
-                <Button type="submit" primary />
-            </FormWrapper>
-        )}
-    </Form>
-)
+    const dispatch = useDispatch();
+
+    const addTodo = useCallback(
+        (text) => dispatch(addTodoActionCreator(text)),
+        [dispatch]
+    )
+
+   return (
+
+
+        <Form className="form" onSubmit={values => {
+            if (values.task !== "") {
+                addTodo(values.task);
+                values.task = "";
+            }
+        }}>
+            {props => (
+                <FormWrapper>
+                    <Group>
+                        <Input name="task" type="text" placeholder="Title..." validate={validate => !(validate || "")}/>
+                    </Group>
+                    <Button type="submit" primary />
+                </FormWrapper>
+            )}
+        </Form>
+    )
+}

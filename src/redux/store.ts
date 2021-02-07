@@ -33,7 +33,7 @@ type addTodoActionType = {
     task: string
 }
 
-export const addTodo = (text:string):addTodoActionType => {
+export const addTodoActionCreator = (text:string):addTodoActionType => {
     return {
             type: ADD_TODO,
             task : text
