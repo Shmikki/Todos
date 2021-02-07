@@ -1,7 +1,8 @@
 import {createSelector} from "reselect";
+import {todoType} from "./store";
 
 
-const getTodos = (state) => {
+const getTodos = (state:any):Array<todoType> => {
     return state
 }
 
