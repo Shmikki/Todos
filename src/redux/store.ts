@@ -3,6 +3,8 @@ import {createStore} from "redux";
 const SET_COMPLETED = "SET_COMPLETED";
 const DELETE_TODO = "DELETE_TODO";
 const ADD_TODO = "ADD_TODO";
+const CHANGE_TASK_TEXT = "CHANGE_TASK_TEXT";
+
 
 type setCompletedActionType = {
     type: typeof SET_COMPLETED
@@ -38,6 +40,20 @@ export const addTodoActionCreator = (text:string):addTodoActionType => {
             type: ADD_TODO,
             task : text
         }
+}
+
+type changeTaskTextType = {
+    type : typeof CHANGE_TASK_TEXT
+    text : string
+    index:number
+}
+
+export const changeTaskTextActionCreator = (text:string,index:number):changeTaskTextType => {
+    return {
+        type: CHANGE_TASK_TEXT,
+        text,
+        index
+    }
 }
 
 export type todoType = {
@@ -76,6 +92,8 @@ function todosReducer(state = todos,action:any) : Array<todoType>{
         )];
         case DELETE_TODO:
             return state.filter(item => item.index !== action.id );
+        case CHANGE_TASK_TEXT:
+            return [...state.map(todo => todo.index === action.index ? {...todo,task:action.text} : todo)]
         case ADD_TODO:
             state.push({ index : id, task : action.task, completed: false });
             id++;

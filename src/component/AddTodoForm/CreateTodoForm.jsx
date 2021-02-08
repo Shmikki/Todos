@@ -1,5 +1,5 @@
 import React, {useCallback} from "react";
-import "./TodoForm.scss";
+import "./CreateTodoForm.scss";
 import styled from "styled-components";
 import Form from "./FormControls/AddTodoForm";
 import {Input} from "./FormControls/AddTodoInput/AddTodoInput";
@@ -47,7 +47,7 @@ const Button = styled.button`
   `;
 
 
-export const TodoForm = (props) => {
+export const CreateTodoForm = (props) => {
 
     const dispatch = useDispatch();
 

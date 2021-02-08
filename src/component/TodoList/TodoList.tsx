@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import "./TodoList.css"
 import TodoItem from "./TodoItem/TodoItem";
 import {getTodosSuperSelector} from "../../redux/todo-selectors";
-import {setCompleted, deleteTodoActionCreator, todoType} from "../../redux/store";
+import {setCompleted, deleteTodoActionCreator, todoType, changeTaskTextActionCreator} from "../../redux/store";
 import {useDispatch, useSelector} from "react-redux";
 
 
