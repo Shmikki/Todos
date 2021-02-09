@@ -1,72 +1,14 @@
 .item{
-  height: 70px;
-  position: relative;
-  background: #f5f5f5;
-  flex: 1 0 150px;
-  min-width: 370px;
-  max-width: 400px;
-  display: flex;
-  margin: 7px 0;
-  padding: 10px;
-  border: 1px solid #c4c4c4;
-  align-items: center;
-  box-sizing: border-box;
-  border-radius: 7px;
 
-
-  &:hover{
-    background: #d2d2d2;
+  &__title{
+  color:black
   }
 
-  &__task{
-    font-size: 18px;
-    word-wrap: break-word;
-    overflow-x: hidden;
-    display: flex;
-    max-width: 70%;
-    flex-grow: 2;
-  }
-
-  &__text{
-    margin: 0;
-    padding: 0;
-  }
-
-  &__done{
-    display: flex;
-    align-items: center;
-  }
-
-
-  &__completed{
+  &__completed {
     text-decoration: line-through;
-    color: #868686;
+    color: #8f8f8f;
   }
 
-  &__deletebtn{
-    position: absolute;
-    background: #f5f5f5;
-    border:none;
-    font-size: 24px;
-    cursor: pointer;
-    right: 10px;
-
-    &:active, &:focus{
-      outline: none;
-    }
-
-    &:hover{
-      background: #fd3838;
-    }
-  }
 
 }
 
-input[type="checkbox"]{
-  margin-top: 8px;
-  width: 18px;
-  height: 18px;
-  border-radius: 7px;
-  cursor: pointer;
-  margin-right: 20px;
-}

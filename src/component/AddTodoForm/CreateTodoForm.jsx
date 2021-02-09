@@ -1,51 +1,9 @@
 import React, {useCallback} from "react";
-import "./CreateTodoForm.scss";
-import styled from "styled-components";
 import Form from "./FormControls/AddTodoForm";
 import {Input} from "./FormControls/AddTodoInput/AddTodoInput";
-import plus from "../../assets/images/plus.svg";
 import {useDispatch} from "react-redux";
 import {addTodoActionCreator} from "../../redux/store";
-
-
-const Group = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: fit-content;
-  margin-bottom: 10px;
-`;
-
-const FormWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  min-width: 400px;
-  box-sizing: border-box;
-`;
-
-const Button = styled.button`
-  color: #5b7cb5;
-  margin: 5px;
-  margin-left: 3px;
-  padding: 0;
-  border: none;
-  border-radius: 3px;
-  width: 100%;
-  display: flex;
-  background: url(${plus});
-  background-position: cover;
-  background-size: contain;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  
- &:active, &:focus{
-      outline: none;
-    }
-  `;
-
+import "./CreateTodoForm.scss";
 
 export const CreateTodoForm = (props) => {
 
@@ -56,22 +14,24 @@ export const CreateTodoForm = (props) => {
         [dispatch]
     )
 
-   return (
+    return (
 
 
-        <Form className="form" onSubmit={values => {
+        <Form onSubmit={values => {
             if (values.task !== "") {
                 addTodo(values.task);
                 values.task = "";
             }
         }}>
             {props => (
-                <FormWrapper>
-                    <Group>
-                        <Input name="task" type="text" placeholder="Title..." validate={validate => !(validate || "")}/>
-                    </Group>
-                    <Button type="submit" primary />
-                </FormWrapper>
+                <>
+                    <Input name="task" type="text" placeholder="Title..." validate={validate => !(validate || "")}/>
+                    <div className="abs-btn">
+                    <button className="btn-floating waves-effect waves-light blue">
+                        <i className="material-icons">add</i>
+                    </button>
+                    </div>
+                </>
             )}
         </Form>
     )

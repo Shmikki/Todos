@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import "./TodoList.css"
 import TodoItem from "./TodoItem/TodoItem";
 import {getTodosSuperSelector} from "../../redux/todo-selectors";
-import {setCompleted, deleteTodoActionCreator, todoType, changeTaskTextActionCreator} from "../../redux/store";
+import {setCompleted, deleteTodoActionCreator, todoType} from "../../redux/store";
 import {useDispatch, useSelector} from "react-redux";
 
 
@@ -22,7 +22,7 @@ export default function TodoList() {
     const deleteTodo = (index: number) => dispatch(deleteTodoActionCreator(index));
 
     return (
-        <div className={"todo__list"}>
+        <div className="collection">
             {todos.map(todo => <TodoItem todo={todo} key={todo.index} deleteTodo={deleteTodo}
                                          toggleCompleted={toggleCompleted}
             />)}

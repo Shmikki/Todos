@@ -1,43 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import { useField } from "react-final-form";
+import {Field, useField} from "react-final-form";
+import "./AddTodoInput.scss";
 
 
-
-const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width:100%;
-`;
-
-const InputContainer = styled.input`
-  width: 100%;
-  min-width: 300px;
-  height: 2em;
-  padding: 5px 10px;
-  font-size: 17px;
-  background-color: #ececec;
-  outline: none;
-  transition: all 250ms ease-in-out;
-  color: #2f3337;
-  border-radius: 9px;
-  border: none;
- 
-
-  &:hover {
-    box-shadow: 0px 0px 5px 0px #0783EF};
-  }
-
-  &:focus {
-    outline: 0;
-    box-shadow: 0px 0px 10px 1px #0783EF;
-  }
-
-  &::placeholder {
-    color: #6f6f6f;
-  }
-`;
 
 
 export function Input(props) {
@@ -51,13 +16,15 @@ export function Input(props) {
 
     const inputProps = {
         ...props,
-        error: error && true,
         ...input
     };
 
     return (
-        <InputWrapper>
-            <InputContainer {...inputProps} />
-        </InputWrapper>
+         <div className="input-field inp-w">
+            <Field component="input" {...inputProps} id="title"/>
+            <label htmlFor="title" className="active fz">
+                Write your task`s name
+            </label>
+         </div>
     );
 }
